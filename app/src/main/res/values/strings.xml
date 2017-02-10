@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ZhihuDaily</string>
+    <string name="prompt_loading">loading</string>
+    <string name="error_not_available">访问失败</string>
+    <string name="error_data_null">数据为空</string>
+    <string name="error_network">网络异常</string>
+    <string name="dialog_waiting">请稍候</string>
+    <string name="error_unknown">未知错误</string>
+</resources>
