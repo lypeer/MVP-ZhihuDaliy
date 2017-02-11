@@ -2,8 +2,10 @@
   <dictionary name="lypeer">
     <words>
       <w>butterknife</w>
+      <w>databinding</w>
       <w>gson</w>
       <w>okhttp</w>
+      <w>recyclerview</w>
       <w>zhihudaily</w>
     </words>
   </dictionary>

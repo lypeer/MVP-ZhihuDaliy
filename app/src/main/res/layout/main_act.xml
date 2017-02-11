@@ -20,10 +20,10 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <com.lypeer.zhihudaily.main.MainView
+    <com.lypeer.zhihudaily.feature.main.MainView
         android:layout_width="match_parent"
         android:id="@+id/view_main"
         android:layout_height="match_parent">
 
-    </com.lypeer.zhihudaily.main.MainView>
+    </com.lypeer.zhihudaily.feature.main.MainView>
 </LinearLayout>
