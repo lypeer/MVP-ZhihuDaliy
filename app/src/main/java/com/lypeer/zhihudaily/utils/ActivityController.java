@@ -73,15 +73,4 @@ public class ActivityController {
         }
         return false;
     }
-
-    public static String getVersion() {
-        try {
-            PackageManager manager = App.getAppContext().getPackageManager();
-            PackageInfo info = manager.getPackageInfo(App.getAppContext().getPackageName(), 0);
-            return info.versionName;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
 }

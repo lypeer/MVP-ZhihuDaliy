@@ -1,6 +1,8 @@
 package com.lypeer.zhihudaily.utils;
 
 import android.app.Application;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.view.View;
 import android.widget.Toast;
 
@@ -66,5 +68,16 @@ public class BaseUtil {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public static String getVersion() {
+        try {
+            PackageManager manager = App.getAppContext().getPackageManager();
+            PackageInfo info = manager.getPackageInfo(App.getAppContext().getPackageName(), 0);
+            return info.versionName;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }
