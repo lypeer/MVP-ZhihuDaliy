@@ -25,7 +25,9 @@ public class RetrofitClient {
 
     private static final String TAG = "RetrofitClient";
 
-    private static Retrofit.Builder builder = null;
+    private static Retrofit.Builder sBuilder = null;
+
+    private static Lock sLock = new ReentrantLock();
 
     private RetrofitClient() {
     }
@@ -50,13 +52,12 @@ public class RetrofitClient {
             contentType = Constants.ContentType.JSON;
         }
         final String finalContentType = contentType;
-        Lock lock = new ReentrantLock();
-        lock.lock();
+        sLock.lock();
         try {
-            if (null == builder) {
-                builder = new Retrofit.Builder();
-                builder.baseUrl(Constants.BASE_URL);
-                builder.addConverterFactory(GsonConverterFactory.create());
+            if (null == sBuilder) {
+                sBuilder = new Retrofit.Builder();
+                sBuilder.baseUrl(Constants.BASE_URL);
+                sBuilder.addConverterFactory(GsonConverterFactory.create());
             }
             OkHttpClient.Builder okBuilder = new OkHttpClient.Builder();
             okBuilder.addNetworkInterceptor(new HttpLoggingInterceptor()
@@ -72,12 +73,12 @@ public class RetrofitClient {
                 }
             });
 
-            builder.client(okBuilder.build());
+            sBuilder.client(okBuilder.build());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            lock.unlock();
+            sLock.unlock();
         }
-        return builder;
+        return sBuilder;
     }
 }

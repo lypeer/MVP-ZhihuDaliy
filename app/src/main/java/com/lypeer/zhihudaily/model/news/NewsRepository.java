@@ -19,6 +19,8 @@ public class NewsRepository extends BaseRepository implements NewsDataSource {
     private final NewsDataSource mLocalDS;
     private final NewsDataSource mRemoteDS;
 
+    private static Lock sLock = new ReentrantLock();
+
     private static NewsRepository INSTANCE = null;
     private boolean mIsFirstLoad;
 
@@ -28,12 +30,11 @@ public class NewsRepository extends BaseRepository implements NewsDataSource {
     }
 
     public static NewsRepository getInstance(@NonNull NewsDataSource localDS, @NonNull NewsDataSource remoteDS) {
-        Lock lock = new ReentrantLock();
-        lock.lock();
+        sLock.lock();
         if (null == INSTANCE) {
             INSTANCE = new NewsRepository(localDS, remoteDS);
         }
-        lock.unlock();
+        sLock.unlock();
 
         return INSTANCE;
     }
