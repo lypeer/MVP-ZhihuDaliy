@@ -31,8 +31,8 @@ public abstract class BaseFragment<P extends BasePresenterApi> extends Fragment 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, mRootView);
-        initView(savedInstanceState);
         createPresenter();
+        initView(savedInstanceState);
     }
 
     protected abstract void initView(@Nullable Bundle savedInstanceState);
