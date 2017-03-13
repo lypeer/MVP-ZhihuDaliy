@@ -24,8 +24,8 @@ public abstract class BaseActivity<P extends BasePresenterApi> extends AppCompat
         ActivityController.addActivity(this);
         setContentView(getLayoutResId());
         ButterKnife.bind(this);
-        initView(savedInstanceState);
         createPresenter();
+        initView(savedInstanceState);
     }
 
     protected abstract void initView(@Nullable Bundle savedInstanceState);
