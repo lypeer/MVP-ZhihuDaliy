@@ -14,11 +14,14 @@ public class ${name}Fragment extends BaseFragment<${name}Presenter>{
 
     @Override
     protected ${name}Presenter createPresenter() {
-        return null;
+        return new ${name}Presenter(
+            Injection.provideTargetTrpository,
+            mView${name}
+        );
     }
 
     @Override
     protected int getLayoutResId() {
-        return 0;
+        return R.layout.${name}_frag;;
     }
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="6"
+    name="MVP Initer"
+    minApi="9"
+    minBuildApi="14"
+    description="Creates a set of base view and presenter">
+
+    <category value="Other" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+        
+    <parameter
+        id="useButterKnife"
+        name="ButterKnife"
+        type="boolean"
+        default="true"
+        help="If true, some files about butterknife will be generated" />
+
+
+    <parameter
+       id="useRetrofit"
+       name="Retrofit"
+       type="boolean"
+       default="true"
+       help="If true, some files about retrofit will be generated" />
+       
+    <parameter
+       id="useEventBus"
+       name="EventBus"
+       type="boolean"
+       default="true"
+       help="If true, some files about eventbus will be generated" />
+       
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>

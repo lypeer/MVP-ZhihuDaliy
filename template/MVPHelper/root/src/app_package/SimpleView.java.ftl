@@ -11,11 +11,7 @@ import android.util.AttributeSet;
 
 import ${rootName}.framework.BaseView;
 
-/**
- * Created by lypeer on 2017/2/13.
- */
-
-public class ${name}View extends BaseView<${name}Contract.Presenter> implements ${name}Contract.Presenter {
+public class ${name}View extends BaseView<${name}Contract.Presenter> implements ${name}Contract.View {
 
     <#if hasAdapterAndVH>
     private ${name}Adapter mAdapter;
@@ -23,11 +19,6 @@ public class ${name}View extends BaseView<${name}Contract.Presenter> implements 
 
     public ${name}View(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    @Override
-    public void start() {
-
     }
 
     @Override

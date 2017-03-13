@@ -15,11 +15,14 @@ public class ${name}Activity extends BaseActivity<${name}Presenter> {
     @NonNull
     @Override
     protected ${name}Presenter createPresenter() {
-        return null;
+        return new ${name}Presenter(
+            Injection.provideTargetTrpository,
+            mView${name}
+        );
     }
 
     @Override
     protected int getLayoutResId() {
-        return 0;
+        return R.layout.${name}_act;
     }
 }
